@@ -13,7 +13,6 @@ node_modules/
 
 # Package Files #
 *.jar
-*.war
 *.ear
 *.db
 rebel.xml
@@ -93,4 +92,4 @@ local.properties
 
 # Testing environment specific
 derby.log
-src/main/java/com/lurius/les_visiteurs/config/
+./src/main/java/com/lurius/les_visiteurs/config

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.lurius.les_visiteurs.model.VisiteEntity" table="visite" schema="visiteurs">
+        <id name="idVisite">
+            <column name="idVisite" sql-type="int"/>
+        </id>
+        <property name="nom">
+            <column name="nom" sql-type="varchar(25)" length="25"/>
+        </property>
+        <property name="date">
+            <column name="date" sql-type="varchar(25)" length="25"/>
+        </property>
+        <property name="note">
+            <column name="note" sql-type="int"/>
+        </property>
+        <property name="idPlanning">
+            <column name="idPlanning" sql-type="int"/>
+        </property>
+    </class>
+</hibernate-mapping>
