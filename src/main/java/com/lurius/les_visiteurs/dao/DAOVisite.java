@@ -1,5 +1,6 @@
 package com.lurius.les_visiteurs.dao;
 
+import com.lurius.les_visiteurs.config.ConnectionDatabase;
 import com.lurius.les_visiteurs.model.Visite;
 
 import java.sql.Connection;

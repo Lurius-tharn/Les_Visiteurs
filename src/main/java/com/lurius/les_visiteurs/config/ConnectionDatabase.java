@@ -1,4 +1,4 @@
-package com.lurius.les_visiteurs.dao;
+package com.lurius.les_visiteurs.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

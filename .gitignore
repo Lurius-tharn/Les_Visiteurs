@@ -93,3 +93,4 @@ local.properties
 
 # Testing environment specific
 derby.log
+src/main/java/com/lurius/les_visiteurs/config/
