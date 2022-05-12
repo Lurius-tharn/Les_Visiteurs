@@ -1,20 +1,18 @@
 package com.lurius.les_visiteurs.dao;
 
-import java.sql.SQLException;
-import java.sql.DriverManager;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
-public class ConnectionDatabase
-{
+public class ConnectionDatabase {
     public static final String CLASS_NAME = "com.mysql.cj.jdbc.Driver";
-    public static final String DB_NAME = "Visiteurs";
-    public static final String DB_USER = "root";
-    public static final String DB_PASSWORD = "";
+    public static final String DB_USER = "votre identifiant MySQL";
+    public static final String DB_PASSWORD = "Votre mot de passe";
     public static final String DB_URL = "jdbc:mysql://localhost:3306/Visiteurs";
 
     public static Connection con() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        final Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Visiteurs", "root", "");
+        Class.forName(CLASS_NAME);
+        final Connection con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
         return con;
     }
 }
