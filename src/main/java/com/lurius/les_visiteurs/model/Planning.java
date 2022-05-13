@@ -1,7 +1,9 @@
 package com.lurius.les_visiteurs.model;
 
-public class Planning
-{
+/**
+ * @deprecated
+ **/
+public class Planning {
     private int idPlanning;
     private String nom;
 

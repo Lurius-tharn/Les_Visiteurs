@@ -6,6 +6,9 @@ import com.lurius.les_visiteurs.model.Planning;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * @deprecated
+ */
 public class DAOPlanning {
     private Planning p;
 

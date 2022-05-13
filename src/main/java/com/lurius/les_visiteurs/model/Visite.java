@@ -2,8 +2,10 @@ package com.lurius.les_visiteurs.model;
 
 import java.util.Objects;
 
-public class Visite
-{
+/**
+ * @deprecated
+ **/
+public class Visite {
     private int id;
     private String nom;
     private int note;
@@ -79,7 +81,7 @@ public class Visite
         if (o == null || this.getClass() != o.getClass()) {
             return false;
         }
-        final Visite visite = (Visite)o;
+        final Visite visite = (Visite) o;
         return this.note == visite.note && Objects.equals(this.nom, visite.nom) && Objects.equals(this.date, visite.date);
     }
 

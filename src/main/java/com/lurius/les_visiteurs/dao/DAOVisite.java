@@ -9,6 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * @deprecated
+ */
 public class DAOVisite {
     private Visite v;
 

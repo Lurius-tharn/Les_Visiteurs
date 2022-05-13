@@ -47,4 +47,12 @@ public class PlanningEntity {
         result = 31 * result + (nom != null ? nom.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "PlanningEntity{" +
+                "idPlanning=" + idPlanning +
+                ", nom='" + nom + '\'' +
+                '}';
+    }
 }

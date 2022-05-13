@@ -86,4 +86,15 @@ public class VisiteEntity {
         result = 31 * result + idPlanning;
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "VisiteEntity{" +
+                "idVisite=" + idVisite +
+                ", nom='" + nom + '\'' +
+                ", date='" + date + '\'' +
+                ", note=" + note +
+                ", idPlanning=" + idPlanning +
+                '}';
+    }
 }

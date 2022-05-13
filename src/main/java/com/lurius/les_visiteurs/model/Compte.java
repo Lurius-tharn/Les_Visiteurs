@@ -1,7 +1,9 @@
 package com.lurius.les_visiteurs.model;
 
-public class Compte
-{
+/**
+ * @deprecated
+ **/
+public class Compte {
     private String login;
     private String password;
 

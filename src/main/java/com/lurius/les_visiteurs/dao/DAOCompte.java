@@ -8,6 +8,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @deprecated
+ */
 public class DAOCompte {
     private Compte c;
 
