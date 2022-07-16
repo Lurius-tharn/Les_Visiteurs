@@ -1,7 +1,7 @@
 package com.lurius.les_visiteurs.controller;
 
-import com.lurius.les_visiteurs.dao.DAOCompte;
-import com.lurius.les_visiteurs.model.Compte;
+import com.lurius.les_visiteurs.dao.CompteDAO;
+import com.lurius.les_visiteurs.model.CompteEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -18,13 +18,16 @@ public class LoginServlet extends HttpServlet {
     public void init() {
     }
 
-    public void doGet(final HttpServletRequest request, final HttpServletResponse response) throws IOException, ServletException {
+    public void doPost(final HttpServletRequest request, final HttpServletResponse response) throws IOException, ServletException {
         final HttpSession session = request.getSession();
         response.setContentType("text/html");
         final String login = request.getParameter("login");
         final String password = request.getParameter("password");
-        final Compte c = new Compte(login, password);
-        final DAOCompte daoCompte = new DAOCompte(c);
+        final CompteEntity c = new CompteEntity();
+        c.setLogin(login);
+        c.setPassword(password);
+
+        final CompteDAO daoCompte = new CompteDAO(c);
         if (daoCompte.LogIn()) {
             session.setAttribute("compte", (Object) c);
             request.getRequestDispatcher("/connected-servlet").forward((ServletRequest) request, (ServletResponse) response);

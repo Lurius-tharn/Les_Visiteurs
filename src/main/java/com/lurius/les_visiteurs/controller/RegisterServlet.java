@@ -1,8 +1,8 @@
 package com.lurius.les_visiteurs.controller;
 
 
-import com.lurius.les_visiteurs.dao.DAOCompte;
-import com.lurius.les_visiteurs.model.Compte;
+import com.lurius.les_visiteurs.dao.CompteDAO;
+import com.lurius.les_visiteurs.model.CompteEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -27,11 +27,13 @@ public class RegisterServlet extends HttpServlet {
         final String login = request.getParameter("login");
         final String password = request.getParameter("password");
         final HttpSession session = request.getSession();
-        final Compte c = new Compte(login, password);
-        final DAOCompte daoCompte = new DAOCompte(c);
-        daoCompte.register();
+        final CompteEntity compteEntity = new CompteEntity();
+        compteEntity.setLogin(login);
+        compteEntity.setPassword(password);
+        final CompteDAO compteDAO = new CompteDAO(compteEntity);
+        compteDAO.register();
         System.out.println(login);
-        session.setAttribute("compte", (Object) c);
+        session.setAttribute("compte", (Object) compteEntity);
         request.getRequestDispatcher("/plannificator.jsp").forward((ServletRequest) request, (ServletResponse) response);
     }
 

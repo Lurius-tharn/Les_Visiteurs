@@ -3,8 +3,8 @@
 	HttpSession httpSession1 = request.getSession();
 %>
 <body>
-<p>Connectez-vous pour pouvoir accéder aux plannings</p>
-<form action="login-servlet" method="GET">
+<p>Connectez-vous pour pouvoir accÃ©der aux plannings</p>
+<form action="login-servlet" method="POST">
 	<div class="form-group">
 		<label class="control-label col-sm-2" for="login">Login</label>
 		<div class="col-sm-10">

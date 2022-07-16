@@ -4,9 +4,16 @@ import com.lurius.les_visiteurs.model.HibernateSessionFactory;
 import com.lurius.les_visiteurs.model.PlanningEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 
+/*
+
+ *@
+ *
+ *
+ * */
 public class PlanningDAO {
 
     private PlanningEntity planningEntity;
@@ -36,15 +43,18 @@ public class PlanningDAO {
 
         //Ajout d'un nouveau planning
         PlanningEntity planningEntity2 = new PlanningEntity();
-        planningEntity2.setNom("Chez Fitz");
-        planningEntity2.setIdPlanning(11);
-
+        planningEntity2.setNom("Chez FitzOunet");
+//        planningEntity2.setIdPlanning(11);
+//
         planningDAO.setPlanningEntity(planningEntity2);
-        planningDAO.creer();
-        planningDAO.modifier("Thom");
+        ;
 
-        //Modification du planning
-        planningDAO.modifier("Thom");
+
+        System.out.println(planningDAO.creer());
+//        planningDAO.modifier("Thom");
+//
+//        //Modification du planning
+//        planningDAO.modifier("Thom");
         ArrayList<PlanningEntity> arrayList = PlanningDAO.lister();
 
         for (PlanningEntity planningEntityo :
@@ -65,12 +75,18 @@ public class PlanningDAO {
 
     }
 
-    public void creer() {
+    public int creer() {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         session.save(planningEntity);
         tx.commit();
+        String getLatestId = "FROM PlanningEntity p WHERE p.nom = :nomEnregistre";
+        Query query = session.createQuery(getLatestId);
+        query.setParameter("nomEnregistre", planningEntity.getNom());
+        ArrayList<PlanningEntity> results = (ArrayList<PlanningEntity>) query.list();
         session.close();
+
+        return results.get(0).getIdPlanning();
 
     }
 

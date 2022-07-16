@@ -1,15 +1,26 @@
+<%@ page import="com.lurius.les_visiteurs.model.CompteEntity" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<title> Plannificator</title>
 	<div class="container-fluid">
-		<div class="row no-gutters">
+		<div class="row no-gutters  justify-content-between">
 			<div class="col-1">
 				<img height="50" width="50" class="img-fluid" src="assets/img/cadenas.png">
+				<p class="text-success text-center justify-content-center">Plannificator</p>
+
 			</div>
 			<div class="col-1 align-items-center">
-				<p class="text-success text-center ">Plannificator</p>
+				<% HttpSession httpSession = request.getSession();
+					if (httpSession.getAttribute("compte") != null) {
+						CompteEntity compte = (CompteEntity) httpSession.getAttribute("compte");
+				%>
+				<p class="h1"><%=compte.getLogin() %>
+				</p>
+				<%
+					}
+				%>
 			</div>
 		</div>
 	</div>
@@ -35,12 +46,16 @@
 					   aria-haspopup="true" aria-expanded="false">
 						Planning
 					</a>
+					<%
+						if (httpSession.getAttribute("compte") != null) {
+					%>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="">Créer</a>
 						<a class="dropdown-item" href="#">Modifier</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Visualiser</a>
+						<a class="dropdown-item" href="plannificator.jsp">Visualiser</a>
 					</div>
+					<%}%>
 				</li>
 
 
@@ -51,15 +66,17 @@
 						Compte
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-						<a class="dropdown-item" href="register-servlet">Créer</a>
-						<% HttpSession httpSession = request.getSession();
+
+						<%
 							if (httpSession.getAttribute("compte") == null) {
 						%>
+						<a class="dropdown-item" href="register-servlet">Créer</a>
+
 						<a class="dropdown-item" href="authentification.jsp">Se connecter</a>
 
 						<%}%>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="authentification.jsp">Se déconnecter</a>
+						<a class="dropdown-item" href="signOut-servlet">Se déconnecter</a>
 					</div>
 				</li>
 			</ul>

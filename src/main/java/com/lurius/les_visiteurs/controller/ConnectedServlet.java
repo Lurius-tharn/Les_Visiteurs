@@ -1,6 +1,6 @@
 package com.lurius.les_visiteurs.controller;
 
-import com.lurius.les_visiteurs.model.Compte;
+import com.lurius.les_visiteurs.model.CompteEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -14,10 +14,10 @@ import java.io.IOException;
 
 @WebServlet(name = "ConnectedServlet", value = {"/connected-servlet"})
 public class ConnectedServlet extends HttpServlet {
-    public void doGet(final HttpServletRequest request, final HttpServletResponse response) throws IOException, ServletException {
+    public void doPost(final HttpServletRequest request, final HttpServletResponse response) throws IOException, ServletException {
         final HttpSession session = request.getSession();
         response.setContentType("text/html");
-        final Compte c = (Compte) session.getAttribute("compte");
+        final CompteEntity c = (CompteEntity) session.getAttribute("compte");
         request.getRequestDispatcher("/plannificator.jsp").forward((ServletRequest) request, (ServletResponse) response);
     }
 

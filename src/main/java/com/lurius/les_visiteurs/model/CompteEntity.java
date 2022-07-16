@@ -2,6 +2,7 @@ package com.lurius.les_visiteurs.model;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name = "compte", schema = "visiteurs", catalog = "")
 public class CompteEntity {

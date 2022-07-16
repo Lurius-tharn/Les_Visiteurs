@@ -1,6 +1,6 @@
 package com.lurius.les_visiteurs.controller;
 
-import com.lurius.les_visiteurs.dao.DAOCompte;
+import com.lurius.les_visiteurs.dao.CompteDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +19,7 @@ public class AccountExist extends HttpServlet {
         String errorText = "";
         response.setContentType("text/xml");
         response.setHeader("Cache-Control", "no-cache");
-        if (DAOCompte.isAlreadyExisted(login)) {
+        if (CompteDAO.alreadyExists(login)) {
             errorText = "Le login " + login + " existe d\u00e9ja";
         }
         response.getWriter().write("<message>" + errorText + "</message>");

@@ -67,7 +67,7 @@ public class DAOCompte {
             insertPlanning.executeUpdate();
             con.close();
         } catch (ClassNotFoundException e) {
-            System.out.println("Driver no charg\u00e9!");
+            System.out.println("Driver non chargé!");
         } catch (SQLException ex) {
         }
     }

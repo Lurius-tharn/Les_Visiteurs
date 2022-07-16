@@ -9,19 +9,36 @@ import org.hibernate.query.Query;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * @version 1.0
+ * Classe CompteDAO permettant l'interaction avec la base de données
+ * @Author Fitz
+ **/
 public class CompteDAO {
 
 
     private CompteEntity compteEntity;
 
+
+    /**
+     * Constructeur  instanciant un compte paramètres lors d'une instanciation
+     *
+     * @param compteEntity - CompteEntity le model compte
+     **/
     public CompteDAO(final CompteEntity compteEntity) {
         this.compteEntity = compteEntity;
     }
 
+    /**
+     * Constructeur vide instanciant les objets
+     **/
     public CompteDAO() {
         this.compteEntity = new CompteEntity();
     }
 
+    /**
+     * Fonction static représentant une transaction
+     **/
     public static void main(String[] args) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
@@ -46,6 +63,12 @@ public class CompteDAO {
 
     }
 
+    /**
+     * Fonction static renvoyant un booleen si le login donnée existe
+     *
+     * @param login le login donnée
+     * @return boolean si le login est déja dans la base de donnée
+     **/
     public static boolean alreadyExists(final String login) {
         boolean exist = false;
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
@@ -58,6 +81,11 @@ public class CompteDAO {
         return exist;
     }
 
+    /**
+     * Fonction  renvoyant un booleen si le login donnée existe
+     *
+     * @return boolean si le compte est bien dans la base de données
+     **/
     public boolean LogIn() {
         boolean logged = false;
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
@@ -73,6 +101,9 @@ public class CompteDAO {
         return logged;
     }
 
+    /**
+     * Fonction enregistrant un nouveau compte
+     **/
     public void register() {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();

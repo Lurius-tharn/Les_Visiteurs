@@ -1,6 +1,7 @@
 package com.lurius.les_visiteurs.controller;
 
-import com.lurius.les_visiteurs.dao.DAOVisite;
+import com.lurius.les_visiteurs.dao.VisiteDAO;
+import com.lurius.les_visiteurs.model.VisiteEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -15,9 +16,21 @@ import java.io.IOException;
 public class SupprimerServlet extends HttpServlet {
     public void doGet(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {
         final int idPlanning = Integer.parseInt(req.getParameter("idPlanning"));
-        final int idVisite = Integer.parseInt(req.getParameter("idVisite"));
+        final String[] visites = req.getParameter("visites").split(",");
+        System.out.println(visites);
+        VisiteDAO visiteDAO = new VisiteDAO();
+
         req.setAttribute("idPlanning", (Object) idPlanning);
-        DAOVisite.supprimer(idVisite);
+        for (String idVisite : visites
+        ) {
+            VisiteEntity visiteEntity = new VisiteEntity();
+            visiteEntity.setIdVisite(Integer.parseInt(idVisite));
+            visiteEntity.setIdPlanning(idPlanning);
+            visiteDAO.setVisite(visiteEntity);
+            visiteDAO.supprimer();
+
+        }
+
         req.getRequestDispatcher("/planning.jsp").forward((ServletRequest) req, (ServletResponse) resp);
     }
 }

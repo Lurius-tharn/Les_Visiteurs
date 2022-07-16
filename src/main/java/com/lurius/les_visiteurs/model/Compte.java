@@ -1,6 +1,7 @@
 package com.lurius.les_visiteurs.model;
 
 /**
+ * @author lurius
  * @deprecated
  **/
 public class Compte {
