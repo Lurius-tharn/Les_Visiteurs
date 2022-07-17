@@ -8,24 +8,37 @@ import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 
-/*
-
- *@
- *
- *
- * */
+/**
+ * @version 1.0
+ * Classe PlanningDAO permettant l'interaction avec la table planning
+ * @Author Fitz
+ **/
 public class PlanningDAO {
 
     private PlanningEntity planningEntity;
 
+    /**
+     * Constructeur vide instanciant les objets
+     **/
     public PlanningDAO() {
         this.planningEntity = new PlanningEntity();
     }
+
+    /**
+     * Constructeur  instanciant un compte paramètres lors d'une instanciation
+     *
+     * @param planningEntity - PlanningEntity le model planning
+     **/
 
     public PlanningDAO(PlanningEntity planningEntity) {
         this.planningEntity = planningEntity;
     }
 
+    /**
+     * Fonction static renvoyant une liste de tous les plannings
+     *
+     * @return plannings
+     **/
     public static ArrayList<PlanningEntity> lister() {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         final ArrayList<PlanningEntity> plannings = (ArrayList<PlanningEntity>) session.createQuery("from PlanningEntity ").list();
@@ -34,6 +47,9 @@ public class PlanningDAO {
 
     }
 
+    /**
+     * Fonction static représentant une transaction
+     **/
     public static void main(String[] args) {
 
         PlanningEntity planningEntity = new PlanningEntity();
@@ -65,6 +81,9 @@ public class PlanningDAO {
 
     }
 
+    /**
+     * Fonction supprimant planning
+     **/
     public void supprimer() {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
@@ -75,6 +94,9 @@ public class PlanningDAO {
 
     }
 
+    /**
+     * Fonction créant un planning
+     **/
     public int creer() {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
@@ -90,6 +112,11 @@ public class PlanningDAO {
 
     }
 
+    /**
+     * Fonction modifiant un planning
+     *
+     * @param nom - le nouveau nom du planning
+     **/
     public void modifier(final String nom) {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
@@ -101,6 +128,9 @@ public class PlanningDAO {
 
     }
 
+    /**
+     * Getters et Setters
+     **/
     public PlanningEntity getPlanningEntity() {
         return planningEntity;
     }

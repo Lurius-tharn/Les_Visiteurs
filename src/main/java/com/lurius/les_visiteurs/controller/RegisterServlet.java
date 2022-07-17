@@ -14,6 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * @version 1.0
+ * Servlet registerServlet crée un utilisateur, puis  redirige vers la page principale
+ * @Author Fitz
+ **/
 @WebServlet(name = "registerServlet", value = {"/register-servlet"})
 public class RegisterServlet extends HttpServlet {
     public void init() {

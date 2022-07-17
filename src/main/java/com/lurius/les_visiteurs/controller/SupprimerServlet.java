@@ -12,6 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
+/**
+ * @version 1.0
+ * Servlet suprimerServlet supprime une visite
+ * @Author Fitz
+ **/
 @WebServlet(name = "suprimerServlet", value = {"/supprimer-servlet"})
 public class SupprimerServlet extends HttpServlet {
     public void doGet(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {

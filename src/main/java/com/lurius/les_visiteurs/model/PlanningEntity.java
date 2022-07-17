@@ -2,6 +2,12 @@ package com.lurius.les_visiteurs.model;
 
 import javax.persistence.*;
 
+/**
+ * Classe PLanning representant la Table planning
+ *
+ * @author Fitz
+ * @version 1.0
+ **/
 @Entity
 @Table(name = "planning", schema = "visiteurs", catalog = "")
 public class PlanningEntity {

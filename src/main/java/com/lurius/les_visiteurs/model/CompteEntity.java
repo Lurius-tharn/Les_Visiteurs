@@ -3,6 +3,12 @@ package com.lurius.les_visiteurs.model;
 import javax.persistence.*;
 
 
+/**
+ * Classe CompteEntity representant la Table compte
+ *
+ * @author Fitz
+ * @version 1.0
+ **/
 @Entity
 @Table(name = "compte", schema = "visiteurs", catalog = "")
 public class CompteEntity {

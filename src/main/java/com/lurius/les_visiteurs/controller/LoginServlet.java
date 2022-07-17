@@ -13,6 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * @version 1.0
+ * Servlet loginServlet vérifiant si l'utilisateur parvient a se connecter, si non redirige vers la page d'authentification
+ * @Author Fitz
+ **/
 @WebServlet(name = "loginServlet", value = {"/login-servlet"})
 public class LoginServlet extends HttpServlet {
     public void init() {

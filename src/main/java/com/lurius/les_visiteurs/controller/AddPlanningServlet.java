@@ -12,6 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * @version 1.0
+ * Servlet AddPlanningServlet permettant d'ajouter un planning, redirige ensuite vers la page du planning crée
+ * @Author Fitz
+ **/
 @WebServlet(name = "AddPlanningServlet", value = {"/add-planning-servlet"})
 public class AddPlanningServlet extends HttpServlet {
 

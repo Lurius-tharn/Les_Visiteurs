@@ -12,6 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * @version 1.0
+ * Servlet AddVisiteServlet permettant d'ajouter une visite, redirige ensuite vers la page du planning crée
+ * @Author Fitz
+ **/
 @WebServlet(name = "AddVisiteServlet", value = {"/add-visite-servlet"})
 public class AddVisiteServlet extends HttpServlet {
 
